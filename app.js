@@ -129,7 +129,7 @@ if (vConsulta2 != null && filtro2 != null) {
 
               if (data.meals != null) {
                 if (data.meals.length == 1) {
-                  var urlProductos = 'http://127.0.0.1:5500/prac4/productos.html?nombre=' + encodeURIComponent(vConsulta);
+                  var urlProductos = 'https://juanpa93.github.io/gastro_mundial/prac4/productos.html?nombre=' + encodeURIComponent(vConsulta);
                   + '&filtro=' + encodeURIComponent(filtro)
                   window.location.href = urlProductos
 
@@ -266,7 +266,7 @@ function renderizarProductos(data) {
       var auxBA = did('ck_ba').checked ? 'si' : 'no' 
       console.log(event.target.id)
       var vValorConsulta = event.target.id.replaceAll('-', ' ').replace('card_', '').replace('h2_', '').replace('img_', '')
-      var urlProductos2 = 'http://127.0.0.1:5500/prac4/productos.html?nombre=' + encodeURIComponent(vValorConsulta) +
+      var urlProductos2 = 'https://juanpa93.github.io/gastro_mundial/prac4/productos.html?nombre=' + encodeURIComponent(vValorConsulta) +
         '&consulta=' + encodeURIComponent(vConsulta) + '&filtro=' + encodeURIComponent(filtro) + '&ba=' + encodeURIComponent(auxBA)
       console.log(i, ": ", urlProductos2)
       window.location.href = urlProductos2;
