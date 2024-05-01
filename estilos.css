@@ -19,7 +19,7 @@ body{
 
 .container{
     width: 470px;
-    max-width: 470px;
+    max-width: 470px !important;
     margin-left: CALC(50% - 235px);
     background: rgba(235, 234, 156,0.95);
     display: flex;
