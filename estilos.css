@@ -17,7 +17,7 @@ body{
     padding-bottom: 12px;
 }
 
-.contenedor{
+#container{
     width: 470px;
     max-width: 470px !important;
     margin-left: CALC(50% - 235px);
