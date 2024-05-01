@@ -1,0 +1,93 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Lobster", sans-serif;
+}
+
+div {
+    padding-bottom: 10px;
+}
+
+body{
+    background-image: url('img/fondo.png'); 
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-position: center;
+    padding-bottom: 16px;
+    padding-top: 16px;
+}
+
+.container{
+    width: 470px;
+    margin-left: CALC(50% - 235px);
+    background: rgba(235, 234, 156,0.95);
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px;
+    border: solid 1.5px rgb(238, 139, 10);
+}
+
+#btn_home{
+    width: 30px;
+    background: transparent;
+    margin-top: 5px;
+    border: none;
+}
+
+.platos img{
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px rgba(69, 68, 67); 
+    margin: 16px 0;
+    }
+
+
+.container_platos{
+    width: 470px;
+    margin-left: CALC(50% - 235px);
+    background: rgba(235, 234, 156,0.95);
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px;
+    border: solid 1.5px rgb(238, 139, 10);
+    text-align: center;
+}
+
+#div1_plato_v2{
+    transition: all 0.3s ease-in-out;
+}
+
+
+
+.container_platos .platos{
+    padding: 8px;
+    border-radius: 8px;
+}
+
+
+#filtro{
+    border: solid white 5px;
+}
+
+#filtro, #valor_consulta{
+    border: solid white 5px;
+    border-radius: 3px;
+}
+h1{
+    text-align: center;
+}
+
+.platos{
+    background: transparent;
+    margin-bottom: 5px;
+}
+
+
+.platos p:nth-child(1){
+    font-weight: bold;
+    font-size: 18px;
+}

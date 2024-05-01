@@ -1,0 +1,159 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Lobster", sans-serif;
+}
+
+div {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+body{
+    background-image: url('img/fondo.png'); 
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-position: center;
+    padding-bottom: 12px;
+}
+
+.container{
+    width: 470px;
+    margin-left: CALC(50% - 235px);
+    background: rgba(235, 234, 156,0.95);
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px;
+    border: solid 1.5px rgb(238, 139, 10);
+
+}
+
+h1{
+    margin: 16px 6px;
+    font-weight: bold;
+    font-size: 40px !important;
+    background-color: rgba(240, 248, 255, 0.7);
+    width: 100% !important;
+    margin-left: 0px !important;
+}
+
+.ctr_btns{
+    display: flex;
+    justify-content: end;
+}
+
+#ctr_btns_1, #ctr_btns_2, #ctr_btns_3{
+    background: transparent;
+    border: none;
+    background-color: transparent;
+    color: black;
+    text-align: center;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+}
+
+#ctr_btns_1:hover, #ctr_btns_2:hover, #ctr_btns_3:hover{
+    transform: scale(0.85);
+    background: rgb(238, 139, 10);
+}
+
+
+
+
+.ctr_btns > label{
+    margin-right: 12px;
+}
+
+.ctr_btns > input{
+    width: 16px;
+}
+
+#p_categorias, #p_areas, #p_ingredientes, #p_info_ba{
+    font-size: 12px;
+}
+
+.modal-body > h6{
+    color: rgb(238, 139, 10) !important;
+}
+
+.ctr_info > label{
+    margin-left: 16px;
+}
+
+.container_platos_galeria{
+    width: 470px;
+    margin-left: CALC(50% - 235px);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 5px;
+    padding: 4px;
+    text-align: center;
+}
+
+
+
+.container_platos_galeria .platos{
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.container2{
+    display: flex;
+    justify-content: space-between;
+}
+.ctr_info{
+    display: flex;
+    justify-content: space-between;
+}
+
+#filtro{
+    border: solid white 5px;
+}
+
+#filtro, #valor_consulta{
+    border: solid white 5px;
+    border-radius: 3px;
+}
+h1{
+    text-align: center;
+}
+
+.platos{
+    background: rgba(240, 239, 192, 0.85);
+    margin-bottom: 5px;
+    border: solid 1.5px rgb(238, 139, 10);
+    box-shadow: 2px 2px 2px;
+    transition: all 0.5s ease-in-out;
+}
+
+.platos img{
+border-radius: 50%;
+transition: all 0.3s ease-in-out;
+box-shadow: 2px 2px 2px rgba(69, 68, 67); 
+}
+
+.platos img:hover{
+    animation: rotar 2s linear infinite;
+}
+
+@keyframes rotar {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+.platos:hover{
+    transform: scale(0.95);
+    background: rgb(238, 139, 10);
+}
+
+
+.platos p:nth-child(1){
+    font-weight: bold;
+    font-size: 18px;
+}
