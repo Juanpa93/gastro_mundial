@@ -2,8 +2,8 @@ var filtro = '';
 var vConsulta = '';
 var url = '';
 var auxBA = '';
-var dominio = "http://127.0.0.1:5501";
-//var dominio = "https://juanpa93.github.io/gastro_mundial"
+//var dominio = "http://127.0.0.1:5501";
+var dominio = "https://juanpa93.github.io/gastro_mundial"
 
 //www.themealdb.com/api/json/v1/1/list.php?c=list
 function dqs(qs) {
@@ -80,7 +80,7 @@ console.log("Ingredientes concatenados:", ingredientesConcatenados);
     setTimeout(function(){dqs('#div1_plato_v2').style.display = 'block'},400)
     setTimeout(function(){dqs('#div2_plato_v2').style.display = 'block'},500)
     setTimeout(function(){dqs('#div3_plato_v2').style.display = 'block'},600)
-    
+
   document.getElementById('btn_home').addEventListener('click', function(){
     window.location.href = dominio + '/index.html?' +
     'consulta=' + encodeURIComponent(vConsulta) +  '&filtro=' + encodeURIComponent(filtro)

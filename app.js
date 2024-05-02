@@ -9,8 +9,8 @@ var ingredientes = '';
 var valorTemp = "";
 var criterioTemp = "";
 var banBA = "";
-var dominio = "http://127.0.0.1:5501";
-//var dominio = "https://juanpa93.github.io/gastro_mundial"
+//var dominio = "http://127.0.0.1:5501";
+var dominio = "https://juanpa93.github.io/gastro_mundial"
 
 function did(id) {
   return document.getElementById(id)
