@@ -30,7 +30,7 @@ body{
     border: solid 1.5px rgb(238, 139, 10);
 }
 
-#btn_home{
+#btn_home, #btn_wa, #btn_des{
     width: 30px;
     background: transparent;
     margin-top: 5px;

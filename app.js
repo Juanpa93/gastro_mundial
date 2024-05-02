@@ -44,16 +44,18 @@ did('ck_ba').addEventListener('input', function () {
       }
     })
   } else {
-    did('container_platos_galeria').innerHTML = '';
+    var urlProductos = dominio + '/index.html?';
+    window.location.href = urlProductos
+    /*did('container_platos_galeria').innerHTML = '';
     did('ctr_btns_3').style.display = 'block';
     did('filtro').value = "";
         filtro = "";
         did('filtro').removeAttribute("readonly")
-        did('valor_consulta').removeEventListener('keyup', function(){
-          if(did('valor_consulta').value != ''){
-            did('ctr_btns_3').click()
-          }
-        })
+        alert("retirar keyup")
+        console.log(did('valor_consulta'))
+        did('valor_consulta').addEventListener('keyup', function(){
+          //
+        })*/
   }
 })
 
