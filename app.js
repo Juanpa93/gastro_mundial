@@ -27,49 +27,64 @@ vConsulta2 = urlParams.get('consulta');
 filtro2 = urlParams.get('filtro');
 banBA = urlParams.get('ba')
 
+did('ck_ba').addEventListener('input', function () {
+  //alert("btn ba cambio")
+  console.log(this.checked);
+  if (this.checked) {
+    //
+    //did('valor_consulta').value = '';
+    did('container_platos_galeria').innerHTML = '';
+    did('ctr_btns_3').style.display = 'none';
+    did('filtro').value = "Nombre";
+    did('filtro').setAttribute("readonly", true)
+        filtro = "Nombre";
+    did('valor_consulta').addEventListener('keyup', function(){
+      if(did('valor_consulta').value != ''){
+        did('ctr_btns_3').click()
+      }
+    })
+  } else {
+    did('container_platos_galeria').innerHTML = '';
+    did('ctr_btns_3').style.display = 'block';
+    did('filtro').value = "";
+        filtro = "";
+        did('filtro').removeAttribute("readonly")
+        did('valor_consulta').removeEventListener('keyup', function(){
+          if(did('valor_consulta').value != ''){
+            did('ctr_btns_3').click()
+          }
+        })
+  }
+})
+
+
 if (vConsulta2 != 'null' && filtro2 != 'null' && vConsulta2 != null && filtro2 != null) {
   document.getElementById('valor_consulta').value = vConsulta2
   document.getElementById('filtro').value = filtro2
   filtro = filtro2;
-  if(banBA == 'si') did('ck_ba').checked = true;
+  if(banBA == 'si'){
+    did('ck_ba').checked = true;
+    var event = new Event('input', { bubbles: true });
+    did('ck_ba').dispatchEvent(event);
+  }
+
   setTimeout(function(){
     document.getElementById('ctr_btns_3').click();
   },1000)
 }
 
-  did('ck_ba').addEventListener('input', function () {
-    console.log(this.checked);
-    if (this.checked) {
-      //
-      did('valor_consulta').value = '';
-      did('container_platos_galeria').innerHTML = '';
-      did('ctr_btns_3').style.display = 'none';
-      did('filtro').value = "Nombre";
-      did('filtro').setAttribute("readonly", true)
-          filtro = "Nombre";
-      did('valor_consulta').addEventListener('keyup', function(){
-        if(did('valor_consulta').value != ''){
-          did('ctr_btns_3').click()
-        }
-      })
-    } else {
-      did('ctr_btns_3').style.display = 'block';
-      did('filtro').value = "";
-          filtro = "";
-          did('filtro').removeAttribute("readonly")
-          did('valor_consulta').removeEventListener('keyup', function(){
-            if(did('valor_consulta').value != ''){
-              did('ctr_btns_3').click()
-            }
-          })
-    }
-  })
+
 
   did('ctr_btns_1').addEventListener('click', function () {
+    if(did('ck_ba').checked){
+      did('valor_consulta').value = "";
+    did('container_platos_galeria').innerHTML = "";
+    }else{
     did('valor_consulta').value = "";
     did('filtro').value = "";
     did('container_platos_galeria').innerHTML = "";
     filtro = "";
+    }
   })
 
   did('ctr_btns_3').addEventListener('click', function () {
@@ -84,31 +99,70 @@ if (vConsulta2 != 'null' && filtro2 != 'null' && vConsulta2 != null && filtro2 !
       return false;
     }
     
-    if((filtro == 'Área' && !areas.includes(vConsulta))){
-      alert("Ingrese un valor para Área permitido")
+    if((filtro == 'Área')){
+      var validador = "";
+      //&& !ingredientes.includes(vConsulta)
+      areas.forEach(element => {
+        if(element.toLowerCase() == vConsulta.toLowerCase()){
+          validador = "si"
+        }
+      })
+      if(validador == ""){
+        alert("Ingrese un valor para Área permitido")
       vConsulta = valorTemp
-      filtro = criterioTemp
-      did('valor_consulta').value = valorTemp;
-      did('filtro').value = criterioTemp; 
-      return false;
+      
+      did('valor_consulta').value = '';
+      did('container_platos_galeria').innerHTML = '';
+      if(criterioTemp !=""){
+        //did('filtro').value = criterioTemp; 
+        //filtro = criterioTemp
+      }return false;
+      
+    }
     }
 
-    if((filtro == 'Ingrediente principal' && !ingredientes.includes(vConsulta))){
-      alert("Ingrese un valor para Ingrediente permitido")
+    if((filtro == 'Ingrediente principal')){
+      var validador = "";
+      //&& !ingredientes.includes(vConsulta)
+      ingredientes.forEach(element => {
+        if(element.toLowerCase() == vConsulta.toLowerCase()){
+          validador = "si"
+        }
+      })
+      if(validador == ""){
+        alert("Ingrese un valor para Ingrediente permitido")
       vConsulta = valorTemp
-      filtro = criterioTemp
-      did('valor_consulta').value = valorTemp;
-      did('filtro').value = criterioTemp;
+      did('valor_consulta').value = '';
+      did('container_platos_galeria').innerHTML = '';
+      if(criterioTemp !=""){
+        //filtro = criterioTemp
+        //did('filtro').value = criterioTemp;
+      } 
       return false;
+      }
     }
 
-    if((filtro == 'Categoría' && !categorias.includes(vConsulta))){
-      alert("Ingrese un valor para Categoría permitido")
+    if((filtro == 'Categoría' )){
+      var validador = "";
+      //&& !ingredientes.includes(vConsulta)
+      categorias.forEach(element => {
+        if(element.toLowerCase() == vConsulta.toLowerCase()){
+          validador = "si"
+        }
+      })
+      if(validador == ""){
+        alert("Ingrese un valor para Categoría permitido")
       vConsulta = valorTemp
-      filtro = criterioTemp
-      did('valor_consulta').value = valorTemp;
-      did('filtro').value = criterioTemp;
+      
+      did('valor_consulta').value = '';
+      did('container_platos_galeria').innerHTML = '';
+      if(criterioTemp !=""){
+        //did('filtro').value = criterioTemp;
+        //sfiltro = criterioTemp
+      }
       return false;
+      }
+      
     }
 
     if (filtro != '' && ['Nombre', 'Área', 'Ingrediente principal', 'Categoría'].includes(filtro)) {
@@ -131,8 +185,10 @@ if (vConsulta2 != 'null' && filtro2 != 'null' && vConsulta2 != null && filtro2 !
 
               if (data.meals != null) {
                 if (data.meals.length == 1) {
-                  var urlProductos = dominio + '/productos.html?nombre=' + encodeURIComponent(vConsulta);
-                  + '&filtro=' + encodeURIComponent(filtro)
+                  //console.log("log jp: ", data.meals)
+                  var auxBA = did('ck_ba').checked ? 'si' : 'no';
+                  var urlProductos = dominio + '/productos.html?nombre=' + encodeURIComponent(vConsulta)
+                  + '&filtro=' + encodeURIComponent(filtro); /* + '&ba=' + encodeURIComponent(auxBA);*/
                   did('valor_consulta').value = "";
                   did('filtro').value = "";
                   filtro = ""
@@ -145,7 +201,12 @@ if (vConsulta2 != 'null' && filtro2 != 'null' && vConsulta2 != null && filtro2 !
                 valorTemp = vConsulta
                 criterioTemp = filtro
               } else {
-                alert("No se ha encontrado el plato con los valores proporcionados")
+                if(did('ck_ba').checked){
+                  did('container_platos_galeria').innerHTML = '';
+                }else{
+                  alert("No se ha encontrado el plato con los valores proporcionados")
+                }
+    
               }
             })
             .catch(function (error) {
@@ -272,7 +333,7 @@ function renderizarProductos(data) {
       var auxBA = did('ck_ba').checked ? 'si' : 'no' 
       console.log(event.target.id)
       var vValorConsulta = event.target.id.replaceAll('-', ' ').replace('card_', '').replace('h2_', '').replace('img_', '')
-      var urlProductos2 = dominio + ' /productos.html?nombre=' + encodeURIComponent(vValorConsulta) +
+      var urlProductos2 = dominio + '/productos.html?nombre=' + encodeURIComponent(vValorConsulta) +
         '&consulta=' + encodeURIComponent(vConsulta) + '&filtro=' + encodeURIComponent(filtro) + '&ba=' + encodeURIComponent(auxBA)
       console.log(i, ": ", urlProductos2)
       window.location.href = urlProductos2;
