@@ -9,6 +9,8 @@ var ingredientes = '';
 var valorTemp = "";
 var criterioTemp = "";
 var banBA = "";
+var dominio = "http://127.0.0.1:5501";
+//var dominio = "https://juanpa93.github.io/gastro_mundial"
 
 function did(id) {
   return document.getElementById(id)
@@ -25,7 +27,7 @@ vConsulta2 = urlParams.get('consulta');
 filtro2 = urlParams.get('filtro');
 banBA = urlParams.get('ba')
 
-if (vConsulta2 != null && filtro2 != null) {
+if (vConsulta2 != 'null' && filtro2 != 'null' && vConsulta2 != null && filtro2 != null) {
   document.getElementById('valor_consulta').value = vConsulta2
   document.getElementById('filtro').value = filtro2
   filtro = filtro2;
@@ -129,8 +131,12 @@ if (vConsulta2 != null && filtro2 != null) {
 
               if (data.meals != null) {
                 if (data.meals.length == 1) {
-                  var urlProductos = 'https://juanpa93.github.io/gastro_mundial/productos.html?nombre=' + encodeURIComponent(vConsulta);
+                  var urlProductos = dominio + '/productos.html?nombre=' + encodeURIComponent(vConsulta);
                   + '&filtro=' + encodeURIComponent(filtro)
+                  did('valor_consulta').value = "";
+                  did('filtro').value = "";
+                  filtro = ""
+                  vConsulta = "";
                   window.location.href = urlProductos
 
                 } else {
@@ -266,7 +272,7 @@ function renderizarProductos(data) {
       var auxBA = did('ck_ba').checked ? 'si' : 'no' 
       console.log(event.target.id)
       var vValorConsulta = event.target.id.replaceAll('-', ' ').replace('card_', '').replace('h2_', '').replace('img_', '')
-      var urlProductos2 = 'https://juanpa93.github.io/gastro_mundial/productos.html?nombre=' + encodeURIComponent(vValorConsulta) +
+      var urlProductos2 = dominio + ' /productos.html?nombre=' + encodeURIComponent(vValorConsulta) +
         '&consulta=' + encodeURIComponent(vConsulta) + '&filtro=' + encodeURIComponent(filtro) + '&ba=' + encodeURIComponent(auxBA)
       console.log(i, ": ", urlProductos2)
       window.location.href = urlProductos2;
